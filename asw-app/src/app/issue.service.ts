@@ -11,6 +11,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class IssueService {
   private sortTitleBool = true;
   private sortKindBool = true;
+  private sortKindPriority = true;
+  private sortKindStatus = true;
+  private sortKindUser = true;
 
   getIssues(): Observable<Issue[]> {
     return this.http.get<Issue[]>('https://safe-ridge-41224.herokuapp.com/issues', {
@@ -60,8 +63,8 @@ export class IssueService {
   }
 
   sortPriority(): Observable<Issue[]> { 
-    this.sortKindBool = !this.sortKindBool;
-    if (this.sortKindBool){
+    this.sortKindPriority = !this.sortKindPriority;
+    if (this.sortKindPriority){
       return this.http.get<Issue[]>('https://safe-ridge-41224.herokuapp.com/issues?direction=asc&sort=issue_priority_id', {
         headers: new HttpHeaders()
             .set('Accept', 'application/json')
@@ -76,8 +79,8 @@ export class IssueService {
   }
 
   sortStatus(): Observable<Issue[]> { 
-    this.sortKindBool = !this.sortKindBool;
-    if (this.sortKindBool){
+    this.sortKindStatus = !this.sortKindStatus;
+    if (this.sortKindStatus){
       return this.http.get<Issue[]>('https://safe-ridge-41224.herokuapp.com/issues?direction=asc&sort=issue_status_id', {
         headers: new HttpHeaders()
             .set('Accept', 'application/json')
@@ -92,8 +95,8 @@ export class IssueService {
   }
 
   sortUserID(): Observable<Issue[]> { 
-    this.sortKindBool = !this.sortKindBool;
-    if (this.sortKindBool){
+    this.sortKindUser = !this.sortKindUser;
+    if (this.sortKindUser){
       return this.http.get<Issue[]>('https://safe-ridge-41224.herokuapp.com/issues?direction=asc&sort=user_id', {
         headers: new HttpHeaders()
             .set('Accept', 'application/json')
