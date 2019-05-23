@@ -1,0 +1,65 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <title>The HTML5 Herald</title>
+</head>
+
+<body>
+    
+<nav class="navbar navbar-light bg-light container">
+    <h1 class="navbar-brand">{{title}}</h1>
+</nav>
+
+
+<div class="filter-header container my-4">
+  <h6 style="display: inline;">Filter by:</h6>
+  <button type="button" class="btn btn-dark">All</button>
+  <button type="button" class="btn btn-dark">Open</button>
+  <button type="button" class="btn btn-dark">My issues</button>
+  <button type="button" class="btn btn-dark">Watching</button>
+</div>
+
+<table class="container table table-striped">
+  <thead>
+    <tr>
+      <th><a href="">Title</a></th>
+      <th><a href="">Kind</a></th>
+      <th><a href="">Priority</a></th>
+      <th><a href="">Status</a></th>
+      <th><a href="">User ID</a></th>
+      <th><a href="">Created</a></th>
+      <th><a href="">Updated</a></th> 
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody class="issue-table-body">
+    <tr *ngFor="let issue of issues">
+        <td>{{issue.title}}</td>
+        <td>{{issue.issue_kind_id}}</td>
+        <td>{{issue.issue_priority_id}}</td>
+        <td>{{issue.issue_status_id}}</td>
+        <td>{{issue.user_id}}</td>
+        <td>{{issue.created_at}}</td>
+        <td>{{issue.updated_at}}</td>
+    </tr>
+  </tbody>
+</table>
+
+  <script src="js/scripts.js"></script>
+  <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+
