@@ -21,8 +21,8 @@
 
 <div class="filter-header container my-4">
   <h6 style="display: inline;">Filter by:</h6>
-  <button type="button" class="btn btn-dark">All</button>
-  <button type="button" class="btn btn-dark">Open</button>
+  <button type="button" class="btn btn-dark"  (click)="getIssues()">All</button>
+  <button type="button" class="btn btn-dark"  (click)="filterOpen()">Open</button>
   <button type="button" class="btn btn-dark">My issues</button>
   <button type="button" class="btn btn-dark">Watching</button>
 </div>
@@ -30,24 +30,24 @@
 <table class="container table table-striped">
   <thead>
     <tr>
-      <th><a href="">Title</a></th>
-      <th><a href="">Kind</a></th>
-      <th><a href="">Priority</a></th>
-      <th><a href="">Status</a></th>
-      <th><a href="">User ID</a></th>
-      <th><a href="">Created</a></th>
-      <th><a href="">Updated</a></th>
+      <th><button type="button" class="btn" style="background-color:transparent" (click)="sortTitle()">Title</button></th>
+      <th><button type="button" class="btn" style="background-color:transparent"  (click)="sortKind()">Kind</button></th>
+      <th><button type="button" class="btn" style="background-color:transparent"  (click)="sortPriority()">Priority</button></th>
+      <th><button type="button" class="btn" style="background-color:transparent"  (click)="sortStatus()">Status</button></th>
+      <th><button type="button" class="btn" style="background-color:transparent"  (click)="sortUserID()">User ID</button></th>
+      <th><button type="button" class="btn" style="background-color:transparent"  (click)="sortCreated()">Created</button></th>
+      <th><button type="button" class="btn" style="background-color:transparent"  (click)="sortUpdated()">Updated</button></th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody class="issue-table-body">
     <tr *ngFor="let issue of issues">
-        <td>{{issue.title}}</td>
+        <td>#{{issue.id}} {{issue.title}}</td>
         <td>{{issue.issue_kind_id}}</td>
         <td>{{issue.issue_priority_id}}</td>
         <td>{{issue.issue_status_id}}</td>
-        <td>{{issue.user_id}}</td>
+        <td>{{issue.user_id.name}}</td>
         <td>{{issue.created_at}}</td>
         <td>{{issue.updated_at}}</td>
     </tr>

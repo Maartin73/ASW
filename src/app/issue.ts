@@ -2,8 +2,26 @@ export class Issue {
     id: number;
     title: string;
     description: string;
-    author_id: number;
-    user_id: number;
+    author_id: {
+        id: number;
+        name: string;
+        email: string;
+        links: {
+            image: {
+                href: string;
+            };
+        };
+    };
+    user_id: {
+        id: number;
+        name: string;
+        email: string;
+        links: {
+            image: {
+                href: string;
+            };
+        };
+    };
     issue_kind_id: number;
     issue_priority_id: number;
     issue_status_id: number;
