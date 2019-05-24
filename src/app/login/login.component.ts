@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
   }
 
   sendToRestApiMethod(user_id: string, token: string) : void {
-    this.http.post("updateAndVerifyToken",
+    this.http.post("https://safe-ridge-41224.herokuapp.com/updateAndVerifyToken",
        {
           user_id: user_id,
           token: token
