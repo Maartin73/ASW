@@ -110,6 +110,34 @@ export class IssueService {
     }
   }
 
+  showKind(idKind): Observable<Issue[]> { 
+    return this.http.get<Issue[]>('https://safe-ridge-41224.herokuapp.com/issues?issue_kind_id='+idKind, {
+        headers: new HttpHeaders()
+            .set('Accept', 'application/json')
+      });
+  }
+
+  showStatus(idStatus): Observable<Issue[]> { 
+    return this.http.get<Issue[]>('https://safe-ridge-41224.herokuapp.com/issues?issue_status_id='+idStatus, {
+        headers: new HttpHeaders()
+            .set('Accept', 'application/json')
+      });
+  }
+
+  showPriority(idPriority): Observable<Issue[]> { 
+    return this.http.get<Issue[]>('https://safe-ridge-41224.herokuapp.com/issues?issue_priority_id='+idPriority, {
+        headers: new HttpHeaders()
+            .set('Accept', 'application/json')
+      });
+  }
+
+  showUser(idUser): Observable<Issue[]> { 
+    return this.http.get<Issue[]>('https://safe-ridge-41224.herokuapp.com/issues?user_id='+idUser, {
+        headers: new HttpHeaders()
+            .set('Accept', 'application/json')
+      });
+  }
+
   /* sortCreated(): Observable<Issue[]> { 
     this.sortKindBool = !this.sortKindBool;
     if (this.sortKindBool){

@@ -54,6 +54,26 @@ export class AppComponent implements OnInit {
         .subscribe(issues => this.issues = issues);
   }
 
+  showKind(idKind): void {
+    this.issueService.showKind(idKind)
+        .subscribe(issues => this.issues = issues);
+  }
+
+  showPriority(idPriority): void {
+    this.issueService.showPriority(idPriority)
+        .subscribe(issues => this.issues = issues);
+  }
+
+  showStatus(idStatus): void {
+    this.issueService.showStatus(idStatus)
+        .subscribe(issues => this.issues = issues);
+  }
+
+  showUser(idUser): void {
+    this.issueService.showUser(idUser)
+        .subscribe(issues => this.issues = issues);
+  }
+
   /* sortCreated(): void {
     this.issueService.sortCreated()
         .subscribe(issues => this.issues = issues);
