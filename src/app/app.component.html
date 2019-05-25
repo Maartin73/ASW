@@ -69,70 +69,54 @@
         <td>
           <div *ngIf="issue.issue_priority_id == 1">
             <button type="button" class="btn" style="background-color:transparent" (click)="showPriority(issue.issue_priority_id)">
-              <img src="" />
+              <img src="https://safe-ridge-41224.herokuapp.com/assets/trivial-5518244345e00cd4a5fa6f15d2e06d8bdd5a59ec56af8bc9de73694242e91ba3.svg" />
             </button> 
           </div>
           <div *ngIf="issue.issue_priority_id == 2">
             <button type="button" class="btn" style="background-color:transparent" (click)="showPriority(issue.issue_priority_id)">
-              <img src="" />
+              <img src="https://safe-ridge-41224.herokuapp.com/assets/minor-3b9ec8225b7e2d8e072b7a21707a1aeece95500fe92a183fd780f9fd91ba4527.svg" />
             </button> 
           </div>
           <div *ngIf="issue.issue_priority_id == 3">
             <button type="button" class="btn" style="background-color:transparent" (click)="showPriority(issue.issue_priority_id)">
-              <img src="" />
+              <img src="https://safe-ridge-41224.herokuapp.com/assets/major-3989ecbc723ed029e25331900c2a95cac2676920dbbb41b2f6a3d475f4c39c9c.svg" />
             </button> 
           </div>
           <div *ngIf="issue.issue_priority_id == 4">
             <button type="button" class="btn" style="background-color:transparent" (click)="showPriority(issue.issue_priority_id)">
-              <img src="" />
+              <img src="https://safe-ridge-41224.herokuapp.com/assets/critical-bff267ee5aa80285d388bc70e126dee7bf5d86e4024a6c5915aa2d1d48d1dcbf.svg" />
             </button> 
           </div>
           <div *ngIf="issue.issue_priority_id == 5">
             <button type="button" class="btn" style="background-color:transparent" (click)="showPriority(issue.issue_priority_id)">
-              <img src="" />
+              <img src="https://safe-ridge-41224.herokuapp.com/assets/blocker-deaf6c1ddc85299cf40032f76fbcfa105d2fc7df43e2b72cba51b09019879ef0.svg" />
             </button> 
           </div>
         </td>
         <td>
           <div *ngIf="issue.issue_status_id == 1">
-            <button type="button" class="btn" style="background-color:transparent" (click)="showStatus(issue.issue_status_id)">
-              <img src="" />
-            </button> 
+            <button type="button" class="btn" style="background-color:transparent" (click)="showStatus(issue.issue_status_id)">NEW</button>
           </div>
           <div *ngIf="issue.issue_status_id == 2">
-            <button type="button" class="btn" style="background-color:transparent" (click)="showStatus(issue.issue_status_id)">
-              <img src="" />
-            </button> 
+            <button type="button" class="btn" style="background-color:transparent" (click)="showStatus(issue.issue_status_id)">OPEN</button> 
           </div>
           <div *ngIf="issue.issue_status_id == 3">
-            <button type="button" class="btn" style="background-color:transparent" (click)="showStatus(issue.issue_status_id)">
-              <img src="" />
-            </button> 
+            <button type="button" class="btn" style="background-color:transparent" (click)="showStatus(issue.issue_status_id)">ON HOLD</button>
           </div>
           <div *ngIf="issue.issue_status_id == 4">
-            <button type="button" class="btn" style="background-color:transparent" (click)="showStatus(issue.issue_status_id)">
-              <img src="" />
-            </button> 
+            <button type="button" class="btn" style="background-color:transparent" (click)="showStatus(issue.issue_status_id)">RESOLVED</button> 
           </div>
           <div *ngIf="issue.issue_status_id == 5">
-            <button type="button" class="btn" style="background-color:transparent" (click)="showStatus(issue.issue_status_id)">
-              <img src="" />
-            </button> 
+            <button type="button" class="btn" style="background-color:transparent" (click)="showStatus(issue.issue_status_id)">DUPLICATED</button> 
           </div>
           <div *ngIf="issue.issue_status_id == 6">
-            <button type="button" class="btn" style="background-color:transparent" (click)="showStatus(issue.issue_status_id)">
-              <img src="" />
-            </button> 
+            <button type="button" class="btn" style="background-color:transparent" (click)="showStatus(issue.issue_status_id)">INVALID</button> 
           </div>
           <div *ngIf="issue.issue_status_id == 7">
-            <button type="button" class="btn" style="background-color:transparent" (click)="showStatus(issue.issue_status_id)">
-              <img src="" />
-            </button> 
+            <button type="button" class="btn" style="background-color:transparent" (click)="showStatus(issue.issue_status_id)">WON'T FIX</button> 
           </div>
           <div *ngIf="issue.issue_status_id == 8">
-            <button type="button" class="btn" style="background-color:transparent" (click)="showStatus(issue.issue_status_id)">
-              <img src="" />
-            </button> 
+            <button type="button" class="btn" style="background-color:transparent" (click)="showStatus(issue.issue_status_id)">CLOSED</button> 
           </div>
         </td>
         <td><button type="button" class="btn" style="background-color:transparent" (click)="showUser(issue.user_id.id)">{{issue.user_id.name}}</button></td>
