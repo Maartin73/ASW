@@ -6,10 +6,10 @@ import { IssueService }  from '../issue.service';
 
 @Component({
   selector: 'app-issue',
-  templateUrl: './issue.component.html',
-  styleUrls: ['./issue.component.css']
+  templateUrl: './issues.component.html',
+  styleUrls: ['./issues.component.css']
 })
-export class IssueComponent implements OnInit {
+export class IssuesComponent implements OnInit {
   issue: Issue;
 
   constructor(
