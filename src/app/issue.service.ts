@@ -177,8 +177,10 @@ export class IssueService {
     }
   } */
 
-  resolveIssue(id: number) {
-
+  resolveIssue(issue: Issue): Observable<Issue> {
+    return this.http.put(`https://safe-ridge-41224.herokuapp.com/issues/${issue.id}`, issue, {
+        headers: new HttpHeaders()
+            .set('Accept', 'application/json')});
   }
 
   constructor(private http: HttpClient) {}

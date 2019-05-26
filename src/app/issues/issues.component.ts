@@ -29,7 +29,8 @@ export class IssuesComponent implements OnInit {
   }
 
   resolveIssue() {
-  	this.issueService.resolveIssue(issue.id);
+  	this.issue.issue_status_id = 4;
+  	this.issueService.resolveIssue(this.issue).subscribe(issue => this.issue = issue);
   }
 
 }
