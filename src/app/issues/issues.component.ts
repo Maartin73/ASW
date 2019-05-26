@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Issue }         	from '../issue';
 import { IssueService }  	from '../issue.service';
+import { Comment }         	from '../comment';
+import { CommentService }  	from '../comment.service';
 
 @Component({
   selector: 'app-issue',
@@ -11,7 +13,6 @@ import { IssueService }  	from '../issue.service';
 })
 export class IssuesComponent implements OnInit {
   issue: Issue;
-  comments: Comment[];
 
   constructor(
   	private route: ActivatedRoute,
