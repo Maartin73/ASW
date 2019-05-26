@@ -28,4 +28,8 @@ export class IssuesComponent implements OnInit {
   	this.issueService.getIssue(id).subscribe(issue => this.issue = issue);
   }
 
+  resolveIssue() {
+  	this.issueService.resolveIssue(issue.id);
+  }
+
 }

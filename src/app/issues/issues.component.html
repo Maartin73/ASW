@@ -22,7 +22,7 @@
 	<div class="issue-sub-header" style="padding: 10px 38px">
 		<div class="issue-number">Issue #{{issue.id}}</div>
 		<div class="issue-toolbar">
-			<button type="button" class="btn btn-dark"  (click)="getIssues()" style="margin: 20px 5px;">Resolve</button>
+			<button type="button" class="btn btn-dark"  (click)="resolveIssue()" style="margin: 20px 5px;">Resolve</button>
 			<button type="button" class="btn btn-dark"  (click)="getIssues()" style="margin: 20px 5px;">Edit</button>
 			<button type="button" class="btn btn-dark"  (click)="getIssues()" style="margin: 20px 5px;">Delete</button>
 		</div>
@@ -59,17 +59,27 @@
 								Persona
 							</a>
 						</div>
+						<div class="comment-content" style="padding: 0px 45px">
+							{{comment.content}}
+						</div>
+						<div class="creation-time" style="padding: 0px 45px">
+							{{comment.created_at[8]}}{{comment.created_at[9]}}{{comment.created_at[4]}}{{comment.created_at[5]}}{{comment.created_at[6]}}{{comment.created_at[7]}}{{comment.created_at[0]}}{{comment.created_at[1]}}{{comment.created_at[2]}}{{comment.created_at[3]}}
+						</div>
 					</div>
-					<div class="comment-content" style="padding: 0px 45px">
-						{{comment.content}}
-					</div>
-					<div class="creation-time" style="padding: 0px 45px">
-						{{comment.created_at[8]}}{{comment.created_at[9]}}{{comment.created_at[4]}}{{comment.created_at[5]}}{{comment.created_at[6]}}{{comment.created_at[7]}}{{comment.created_at[0]}}{{comment.created_at[1]}}{{comment.created_at[2]}}{{comment.created_at[3]}}
-					</div>
+				</div>
+				<div class="new-comment">
+					<form>
+						<div class="field">
+						    <label for="comment">Comment:</label>
+						    <input type="text_area" style="width: 50%" id="comment" required>
+						</div>
+					    <button type="submit" class="btn btn-success">Submit</button>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
+
 	<div class="side-bar">
 		<dl>
 			<dt>Assignee</dt>

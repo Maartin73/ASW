@@ -177,5 +177,9 @@ export class IssueService {
     }
   } */
 
+  resolveIssue(id: number) {
+
+  }
+
   constructor(private http: HttpClient) {}
 }
