@@ -1,3 +1,5 @@
+import { Comment }          from './comment';
+
 export class Issue {
     id: number;
     title: string;
@@ -29,4 +31,5 @@ export class Issue {
     updated_at: string;
     voters: number;
     watchers: number;
+    coments: [Comment]
 }

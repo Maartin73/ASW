@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Issue }         from '../issue';
-import { IssueService }  from '../issue.service';
+import { Issue }         	from '../issue';
+import { IssueService }  	from '../issue.service';
 
 @Component({
   selector: 'app-issue',
@@ -11,6 +11,7 @@ import { IssueService }  from '../issue.service';
 })
 export class IssuesComponent implements OnInit {
   issue: Issue;
+  comments: Comment[];
 
   constructor(
   	private route: ActivatedRoute,
