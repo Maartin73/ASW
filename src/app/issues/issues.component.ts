@@ -122,14 +122,18 @@ export class IssuesComponent implements OnInit {
         .subscribe(issues => this.issues = issues);
   }
 
-  /* sortCreated(): void {
-    this.issueService.sortCreated()
-        .subscribe(issues => this.issues = issues);
+  sortCreated(): void {
+    /*this.issueService.sortCreated()
+        .subscribe(issues => this.issues = issues);*/
   }
 
   sortUpdated(): void {
-    this.issueService.sortUpdated()
-        .subscribe(issues => this.issues = issues);
-  } */
+    /*this.issueService.sortUpdated()
+        .subscribe(issues => this.issues = issues);*/
+  }
+
+  sortWatching(): void {
+
+  }
 
 }
