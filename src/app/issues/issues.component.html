@@ -23,8 +23,8 @@
 		<div class="issue-number">Issue #{{issue.id}}</div>
 		<div class="issue-toolbar">
 			<button type="button" class="btn btn-dark"  (click)="resolveIssue()" style="margin: 20px 5px;">Resolve</button>
-			<button type="button" class="btn btn-dark"  (click)="getIssues()" style="margin: 20px 5px;">Edit</button>
-			<button type="button" class="btn btn-dark"  (click)="getIssues()" style="margin: 20px 5px;">Delete</button>
+			<button type="button" class="btn btn-dark"  (click)="resolveIssue()" style="margin: 20px 5px;">Edit</button>
+			<button type="button" class="btn btn-dark"  (click)="resolveIssue()" style="margin: 20px 5px;">Delete</button>
 		</div>
 	</div>
 	<div class="group">
@@ -151,13 +151,13 @@
 			<dt>Votes</dt>
 			<dd>
 				{{issue.voters}}
-				<button type="button" class="btn" style="background-color:transparent; padding: 0px 0px;" (click)="showStatus(issue.issue_status_id)">Vote</button>
+				<button type="button" class="btn" style="background-color:transparent; padding: 0px 0px>Vote</button>
 			</dd>
 
 			<dt>Watchers</dt>
 			<dd>
 				{{issue.watchers}}
-				<button type="button" class="btn" style="background-color:transparent; padding: 0px 0px;" (click)="showStatus(issue.issue_status_id)">Watch</button>
+				<button type="button" class="btn" style="background-color:transparent; padding: 0px 0px>Watch</button>
 			</dd>
 		</dl>
 	</div>

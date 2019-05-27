@@ -8,7 +8,7 @@ export class Issue {
         id: number;
         name: string;
         email: string;
-        links: {
+        _links: {
             image: {
                 href: string;
             };
@@ -31,5 +31,5 @@ export class Issue {
     updated_at: string;
     voters: number;
     watchers: number;
-    coments: [Comment]
+    comments: [Comment]
 }
