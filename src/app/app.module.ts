@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider } from "angularx-social-login";
 import { IssuesComponent } from './issues/issues.component';
+import { IssueDetailComponent } from './issue-detail/issue-detail.component';
 
 let config = new AuthServiceConfig([
   {
@@ -26,13 +28,15 @@ export function provideConfig() {
   declarations: [
     AppComponent,
     LoginComponent,
-    IssuesComponent
+    IssuesComponent,
+    IssueDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    SocialLoginModule
+    SocialLoginModule,
+    FormsModule
   ],
   providers: [
     {

@@ -1,0 +1,160 @@
+<body>
+
+<nav class="navbar navbar-light bg-light ">
+    <h1 class="navbar-brand" style="padding: 0px 38px">{{issue.title}}</h1>
+</nav>
+
+<div class="content" >
+	<div class="main-content" style="float: left; width: 75%">
+		<div class="issue-sub-header" style="padding: 10px 38px">
+			<div class="issue-number">Issue #{{issue.id}}</div>
+			<div class="issue-toolbar">
+				<button type="button" class="btn btn-dark"  (click)="resolveIssue()" style="margin: 20px 5px;">Resolve</button>
+				<button type="button" class="btn btn-dark"  (click)="resolveIssue()" style="margin: 20px 5px;">Edit</button>
+				<button type="button" class="btn btn-dark"  (click)="resolveIssue()" style="margin: 20px 5px;">Delete</button>
+			</div>
+		</div>
+		<div class="group">
+			<div class="items">
+				<div class="main-content">
+					<div class="author">
+						<a class="author-avatar">
+							<img [src]="issue.author_id._links.image.href" style="border-radius: 50%; width: 35px">
+						</a>
+						<a class="author-name" style="padding: 0px 5px">
+							{{issue.author_id.name}}
+						</a>
+						created an issue 
+						<a class="creation-time">
+							{{issue.created_at[8]}}{{issue.created_at[9]}}{{issue.created_at[4]}}{{issue.created_at[5]}}{{issue.created_at[6]}}{{issue.created_at[7]}}{{issue.created_at[0]}}{{issue.created_at[1]}}{{issue.created_at[2]}}{{issue.created_at[3]}}
+						</a>
+					</div>
+					<div class="issue-description" style="padding: 0px 85px">
+						{{issue.description}}
+					</div>
+				</div>
+				<div class="issue-coments" style="padding: 0px 38px">
+					<b>Comments ({{issue.comments.length}})</b>
+					<div class="comments-list" *ngFor="let comment of issue.comments">
+						<div class="comment" style="padding: 5px 0px">
+							<div class="comment-author">
+								<a class="author-avatar">
+									
+
+								</a>
+								<a class="author-name" style="padding: 0px 45px">
+									{{comment.id}}
+								</a>
+							</div>
+							<div class="comment-content" style="padding: 0px 45px">
+								{{comment.content}}
+							</div>
+							<div class="creation-time" style="padding: 0px 45px">
+								{{comment.created_at[8]}}{{comment.created_at[9]}}{{comment.created_at[4]}}{{comment.created_at[5]}}{{comment.created_at[6]}}{{comment.created_at[7]}}{{comment.created_at[0]}}{{comment.created_at[1]}}{{comment.created_at[2]}}{{comment.created_at[3]}}
+							</div>
+						</div>
+					</div>
+					<div class="new-comment" style="padding: 5px 0px">
+						<textarea [(ngModel)] = "newComment" placeholder = "What do you want to say?" style="width: 100%"></textarea>
+						<button type="button" (click)="createComment()" style="margin: 20px 5px;">Comment</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="side-bar" style="float: right; margin: 150px 0px">
+		<dl>
+			<dt>Assignee</dt>
+			<dd>
+				<img [src]="issue.user_id._links.image.href" style="border-radius: 50%; width: 35px">
+				{{issue.user_id.name}}
+			</dd>
+			<dt>Type</dt>
+			<dd *ngIf="issue.issue_kind_id == 1">
+              	<img src="https://safe-ridge-41224.herokuapp.com/assets/bug-0cef5be35522ed02d898f1f65e95c3be9c0d09d214b7013cee6eb30a7118b2a5.svg" />
+            	bug
+			</dd>
+			<dd *ngIf="issue.issue_kind_id == 2">
+            	<img src="https://safe-ridge-41224.herokuapp.com/assets/enhancement-8b1bac2d78457489b5b3d91ad2bcd66edd9d5e2d5860c63225b1747a76294f74.svg" />
+				enhancement
+			</dd>
+			<dd *ngIf="issue.issue_kind_id == 3">
+            	<img src="https://safe-ridge-41224.herokuapp.com/assets/proposal-6d98b00edfa7d872da75aa3ce27bc14967e350f6ef8f94d2a4700ad9f21f3f18.svg" />
+            	proposal
+			</dd>
+			<dd *ngIf="issue.issue_kind_id == 4">
+            	<img src="https://safe-ridge-41224.herokuapp.com/assets/task-f01f4a88b8809fe8d55836cc96845f34e60a248e7514103e3cd7866c76773c91.svg" />
+            	task
+			</dd>
+
+			<dt>Priority</dt>
+			<dd *ngIf="issue.issue_priority_id == 1">
+            	<img src="https://safe-ridge-41224.herokuapp.com/assets/trivial-5518244345e00cd4a5fa6f15d2e06d8bdd5a59ec56af8bc9de73694242e91ba3.svg" style="width: 10%; height: 10%" />
+            	trivial
+			</dd>
+			<dd *ngIf="issue.issue_priority_id == 2">
+            	<img src="https://safe-ridge-41224.herokuapp.com/assets/minor-3b9ec8225b7e2d8e072b7a21707a1aeece95500fe92a183fd780f9fd91ba4527.svg" style="width: 10%; height: 10%" />
+            	minor
+			</dd>
+			<dd *ngIf="issue.issue_priority_id == 3">
+            	<img src="https://safe-ridge-41224.herokuapp.com/assets/major-3989ecbc723ed029e25331900c2a95cac2676920dbbb41b2f6a3d475f4c39c9c.svg" style="width: 10%; height: 10%" />
+            	major
+			</dd>
+			<dd *ngIf="issue.issue_priority_id == 4">
+            	<img src="https://safe-ridge-41224.herokuapp.com/assets/critical-bff267ee5aa80285d388bc70e126dee7bf5d86e4024a6c5915aa2d1d48d1dcbf.svg" style="width: 10%; height: 10%" />
+            	critical
+			</dd>
+			<dd *ngIf="issue.issue_priority_id == 5">
+            	<img src="https://safe-ridge-41224.herokuapp.com/assets/blocker-deaf6c1ddc85299cf40032f76fbcfa105d2fc7df43e2b72cba51b09019879ef0.svg" style="width: 10%; height: 10%" />
+            	blocker
+			</dd>
+
+			<dt>Status</dt>
+			<dd *ngIf="issue.issue_status_id == 1">
+				new
+			</dd>
+			<dd *ngIf="issue.issue_status_id == 2">
+				open
+			</dd>
+			<dd *ngIf="issue.issue_status_id == 3">
+				on hold
+			</dd>
+			<dd *ngIf="issue.issue_status_id == 4">
+				resolved
+			</dd>
+			<dd *ngIf="issue.issue_status_id == 5">
+				duplicate
+			</dd>
+			<dd *ngIf="issue.issue_status_id == 6">
+				invalid
+			</dd>
+			<dd *ngIf="issue.issue_status_id == 7">
+				wontfix
+			</dd>
+			<dd *ngIf="issue.issue_status_id == 8">
+				closed
+			</dd>
+
+			<dt>Votes</dt>
+			<dd>
+				{{issue.voters}}
+				<button type="button" class="btn" style="background-color:transparent; padding: 0px 0px">Vote</button>
+			</dd>
+
+			<dt>Watchers</dt>
+			<dd>
+				{{issue.watchers}}
+				<button type="button" class="btn" style="background-color:transparent; padding: 0px 0px">Watch</button>
+			</dd>
+		</dl>
+	</div>
+</div>
+
+  <script src="js/scripts.js"></script>
+  <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
