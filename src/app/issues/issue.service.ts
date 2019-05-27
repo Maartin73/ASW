@@ -178,7 +178,7 @@ export class IssueService {
   } */
 
   createComment(issueId: number, comment: string): Observable<Comment> {
-    return this.http.post<Comment>(`http://safe-ridge-41224.herokuapp.com/issues/${issueId}/comments`, {
+    return this.http.post<Comment>(`https://safe-ridge-41224.herokuapp.com/issues/${issueId}/comments`, {
       content: comment
     }, {
       headers: new HttpHeaders()
