@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Issue } from './issue';
-import { IssueService } from './issue.service';
 
 @Component({
   selector: 'app-root',
@@ -9,78 +7,9 @@ import { IssueService } from './issue.service';
 })
 
 export class AppComponent implements OnInit {
-  title = 'Issue Tracker';
-
-  issues: Issue[];
-
-  constructor(private issueService: IssueService) { }
+  
+  constructor() { }
 
   ngOnInit() {
-    this.getIssues();
   }
-
-  getIssues(): void {
-    this.issueService.getIssues()
-        .subscribe(issues => this.issues = issues);
-  }
-
-  filterOpen(): void {
-    this.issueService.getOpen()
-        .subscribe(issues => this.issues = issues);
-  }
-
-  sortTitle(): void {
-    this.issueService.sortTitle()
-        .subscribe(issues => this.issues = issues);
-  }
-
-  sortKind(): void {
-    this.issueService.sortKind()
-        .subscribe(issues => this.issues = issues);
-  }
-
-  sortPriority(): void {
-    this.issueService.sortPriority()
-        .subscribe(issues => this.issues = issues);
-  }
-
-  sortStatus(): void {
-    this.issueService.sortStatus()
-        .subscribe(issues => this.issues = issues);
-  }
-
-  sortUserID(): void {
-    this.issueService.sortUserID()
-        .subscribe(issues => this.issues = issues);
-  }
-
-  showKind(idKind): void {
-    this.issueService.showKind(idKind)
-        .subscribe(issues => this.issues = issues);
-  }
-
-  showPriority(idPriority): void {
-    this.issueService.showPriority(idPriority)
-        .subscribe(issues => this.issues = issues);
-  }
-
-  showStatus(idStatus): void {
-    this.issueService.showStatus(idStatus)
-        .subscribe(issues => this.issues = issues);
-  }
-
-  showUser(idUser): void {
-    this.issueService.showUser(idUser)
-        .subscribe(issues => this.issues = issues);
-  }
-
-  /* sortCreated(): void {
-    this.issueService.sortCreated()
-        .subscribe(issues => this.issues = issues);
-  }
-
-  sortUpdated(): void {
-    this.issueService.sortUpdated()
-        .subscribe(issues => this.issues = issues);
-  } */
 }
