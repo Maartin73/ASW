@@ -8,7 +8,7 @@ export class Issue {
         id: number;
         name: string;
         email: string;
-        links: {
+        _links: {
             image: {
                 href: string;
             };
