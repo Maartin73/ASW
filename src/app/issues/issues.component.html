@@ -68,13 +68,8 @@
 					</div>
 				</div>
 				<div class="new-comment">
-					<form>
-						<div class="field">
-						    <label for="comment">Comment:</label>
-						    <input type="text_area" style="width: 50%" id="comment" required>
-						</div>
-					    <button type="submit" class="btn btn-success">Submit</button>
-					</form>
+					<textarea [(ngModel)] = "newComment" placeholder = "What do you want to say?" style="width: 50%"></textarea>
+					<button type="button" (click)="createComment()" style="margin: 20px 5px;">Comment</button>
 				</div>
 			</div>
 		</div>

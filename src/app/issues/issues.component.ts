@@ -13,6 +13,7 @@ import { CommentService }  	from '../comment.service';
 })
 export class IssuesComponent implements OnInit {
   issue: Issue;
+  newComment: string;
 
   constructor(
   	private route: ActivatedRoute,
@@ -29,8 +30,10 @@ export class IssuesComponent implements OnInit {
   }
 
   resolveIssue() {
-  	this.issue.issue_status_id = 4;
-  	this.issueService.resolveIssue(this.issue).subscribe(issue => this.issue = issue);
   }
 
+  createComment() {
+  	this.issueService.createComment(this.issue.id, this.newComment);
+  }
+  
 }

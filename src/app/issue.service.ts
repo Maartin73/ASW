@@ -177,10 +177,13 @@ export class IssueService {
     }
   } */
 
-  resolveIssue(issue: Issue): Observable<Issue> {
-    return this.http.put(`https://safe-ridge-41224.herokuapp.com/issues/${issue.id}`, issue, {
-        headers: new HttpHeaders()
-            .set('Accept', 'application/json')});
+  createComment(issueId: number, comment: string): Observable<Comment> {
+    return this.http.post<Comment>(`https://safe-ridge-41224.herokuapp.com/issues/${issueId}/comments`, {
+      content: comment
+    }, {
+      headers: new HttpHeaders()
+          .set('Accept', 'application/json')
+    });
   }
 
   constructor(private http: HttpClient) {}
