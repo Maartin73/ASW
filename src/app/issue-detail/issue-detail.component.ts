@@ -43,5 +43,13 @@ export class IssueDetailComponent implements OnInit {
   createComment() {
   	this.commentService.createComment(this.issue.id, this.newComment);
   }
+
+  voteIssue() {
+  	this.issueService.voteIssue(this.issue.id);
+  }
+
+  watchIssue() {
+  	this.issueService.watchIssue(this.issue.id);
+  }
   
 }

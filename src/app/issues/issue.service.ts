@@ -184,5 +184,19 @@ export class IssueService {
       });
   }
 
+  voteIssue(issueId: number): Observable<any> {
+    return this.http.post(`https://safe-ridge-41224.herokuapp.com/issues/${issueId}/vote`, {
+        headers: new HttpHeaders()
+            .set('Accept', 'application/json')
+      });
+  }
+
+  watchIssue(issueId: number): Observable<any> {
+    return this.http.post(`https://safe-ridge-41224.herokuapp.com/issues/${issueId}/watch`, {
+        headers: new HttpHeaders()
+            .set('Accept', 'application/json')
+      });
+  }
+
   constructor(private http: HttpClient) {}
 }

@@ -1,17 +1,17 @@
 <body>
 
-<nav class="navbar navbar-light bg-light ">
-    <h1 class="navbar-brand" style="padding: 0px 38px">{{issue.title}}</h1>
-</nav>
+<header>
+    <h1 class="title" style="padding: 0px 38px">{{issue.title}}</h1>
+</header>
 
 <div class="content" >
 	<div class="main-content" style="float: left; width: 75%">
-		<div class="issue-sub-header" style="padding: 10px 38px">
+		<div class="issue-sub-header" style="padding: 0px 38px">
 			<div class="issue-number">Issue #{{issue.id}}</div>
 			<div class="issue-toolbar">
-				<button type="button" class="btn btn-dark"  (click)="resolveIssue()" style="margin: 20px 5px;">Resolve</button>
-				<button type="button" class="btn btn-dark"  (click)="resolveIssue()" style="margin: 20px 5px;">Edit</button>
-				<button type="button" class="btn btn-dark"  (click)="deleteIssue()" style="margin: 20px 5px;">Delete</button>
+				<button type="button" class="btn btn-dark"  (click)="resolveIssue()" style="margin: 5px 5px;">Resolve</button>
+				<button type="button" class="btn btn-dark"  (click)="resolveIssue()" style="margin: 5px 5px;">Edit</button>
+				<button type="button" class="btn btn-dark"  (click)="deleteIssue()" style="margin: 5px 5px;">Delete</button>
 			</div>
 		</div>
 		<div class="group">
@@ -63,7 +63,7 @@
 		</div>
 	</div>
 
-	<div class="side-bar" style="float: right; margin: 150px 0px">
+	<div class="side-bar" style="float: right; margin: 100px 0px">
 		<dl>
 			<dt>Assignee</dt>
 			<dd>
@@ -139,13 +139,13 @@
 			<dt>Votes</dt>
 			<dd>
 				{{issue.voters}}
-				<button type="button" class="btn" style="background-color:transparent; padding: 0px 0px">Vote</button>
+				<button type="button" class="btn" style="background-color:transparent; padding: 0px 0px" (click)="voteIssue()">Vote</button>
 			</dd>
 
 			<dt>Watchers</dt>
 			<dd>
 				{{issue.watchers}}
-				<button type="button" class="btn" style="background-color:transparent; padding: 0px 0px">Watch</button>
+				<button type="button" class="btn" style="background-color:transparent; padding: 0px 0px" (click)="watchIssue()">Watch</button>
 			</dd>
 		</dl>
 	</div>
