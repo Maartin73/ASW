@@ -7,7 +7,7 @@ import { IssueDetailComponent }      from './issue-detail/issue-detail.component
 const routes: Routes = [
   { path: 'issues', component: IssuesComponent },
   { path: 'issues/:type', component: IssuesComponent },
-  { path: 'login', component: LoginComponent },
+  { path: '', component: LoginComponent },
   { path: 'issue/:id', component: IssueDetailComponent}
 ];
 

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { SocialLoginModule, AuthServiceConfig, AuthService } from "angularx-social-login";
 import { GoogleLoginProvider } from "angularx-social-login";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export class LoginComponent implements OnInit {
 
-  constructor( private socialAuthService: AuthService, private http: HttpClient) {}
+  constructor( private socialAuthService: AuthService, private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
   }
@@ -40,6 +41,7 @@ export class LoginComponent implements OnInit {
          console.log("Success - " + token);
           //login was successful
           //save the token that you got from your REST API in your preferred location i.e. as a Cookie or LocalStorage as you do with normal login
+          this.router.navigate(['/issues']);
        }, onFail => {
          console.log("Fail");
           //login was unsuccessful
