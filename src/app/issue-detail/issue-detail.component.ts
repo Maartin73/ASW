@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { Issue }         	from '../issues/issue';
 import { IssueService }  	from '../issues/issue.service';
@@ -18,7 +19,8 @@ export class IssueDetailComponent implements OnInit {
   constructor(
   	private route: ActivatedRoute,
   	private issueService: IssueService,
-  	private commentService: CommentService
+  	private commentService: CommentService,
+  	private router: Router
   ) { }
 
   ngOnInit() {
@@ -28,6 +30,11 @@ export class IssueDetailComponent implements OnInit {
   getIssue() {
   	const id = +this.route.snapshot.paramMap.get('id');
   	this.issueService.getIssue(id).subscribe(issue => this.issue = issue);
+  }
+
+  deleteIssue() {
+  	this.issueService.deleteIssue(this.issue.id);
+  	this.router.navigateByUrl("/issues");
   }
 
   resolveIssue() {

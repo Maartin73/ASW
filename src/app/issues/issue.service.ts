@@ -177,5 +177,12 @@ export class IssueService {
     }
   } */
 
+  deleteIssue(id: number): void {
+   this.http.delete(`https://safe-ridge-41224.herokuapp.com/issues/${id}`, {
+        headers: new HttpHeaders()
+            .set('Accept', 'application/json')
+      });
+  }
+
   constructor(private http: HttpClient) {}
 }
