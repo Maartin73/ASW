@@ -17,7 +17,8 @@ export class IssueDetailComponent implements OnInit {
 
   constructor(
   	private route: ActivatedRoute,
-  	private issueService: IssueService
+  	private issueService: IssueService,
+  	private commentService: CommentService
   ) { }
 
   ngOnInit() {
@@ -33,7 +34,7 @@ export class IssueDetailComponent implements OnInit {
   }
 
   createComment() {
-  	this.issueService.createComment(this.issue.id, this.newComment);
+  	this.commentService.createComment(this.issue.id, this.newComment);
   }
   
 }

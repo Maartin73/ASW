@@ -8,7 +8,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class CommentService {
 
-  constructor() { }
+  createComment(issueId: number, comment: string): Observable<Comment> {
+    return this.http.post<Comment>(`https://safe-ridge-41224.herokuapp.com/issues/${issueId}/comments`, {
+      content: comment
+    }, {
+      headers: new HttpHeaders()
+          .set('Accept', 'application/json')
+    });
+  }
+
+  constructor(private http: HttpClient) { }
 
  
 }
