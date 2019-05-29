@@ -78,68 +78,86 @@
 			</dd>
 			<dt>Type</dt>
 			<dd *ngIf="issue.issue_kind_id == 1">
-              	<img src="https://safe-ridge-41224.herokuapp.com/assets/bug-0cef5be35522ed02d898f1f65e95c3be9c0d09d214b7013cee6eb30a7118b2a5.svg" />
-            	bug
+				<a routerLink="issues/bug">
+	              	<img src="https://safe-ridge-41224.herokuapp.com/assets/bug-0cef5be35522ed02d898f1f65e95c3be9c0d09d214b7013cee6eb30a7118b2a5.svg" />
+	            	bug
+	            </a>
 			</dd>
 			<dd *ngIf="issue.issue_kind_id == 2">
-            	<img src="https://safe-ridge-41224.herokuapp.com/assets/enhancement-8b1bac2d78457489b5b3d91ad2bcd66edd9d5e2d5860c63225b1747a76294f74.svg" />
-				enhancement
+				<a routerLink="/issues/enhancement">
+	            	<img src="https://safe-ridge-41224.herokuapp.com/assets/enhancement-8b1bac2d78457489b5b3d91ad2bcd66edd9d5e2d5860c63225b1747a76294f74.svg" />
+					enhancement
+				</a>
 			</dd>
 			<dd *ngIf="issue.issue_kind_id == 3">
-            	<img src="https://safe-ridge-41224.herokuapp.com/assets/proposal-6d98b00edfa7d872da75aa3ce27bc14967e350f6ef8f94d2a4700ad9f21f3f18.svg" />
-            	proposal
+				<a routerLink="issues/proposal">
+	            	<img src="https://safe-ridge-41224.herokuapp.com/assets/proposal-6d98b00edfa7d872da75aa3ce27bc14967e350f6ef8f94d2a4700ad9f21f3f18.svg" />
+	            	proposal
+	            </a>
 			</dd>
 			<dd *ngIf="issue.issue_kind_id == 4">
-            	<img src="https://safe-ridge-41224.herokuapp.com/assets/task-f01f4a88b8809fe8d55836cc96845f34e60a248e7514103e3cd7866c76773c91.svg" />
-            	task
+				<a routerLink="issues/task">
+	            	<img src="https://safe-ridge-41224.herokuapp.com/assets/task-f01f4a88b8809fe8d55836cc96845f34e60a248e7514103e3cd7866c76773c91.svg" />
+	            	task
+	            </a>
 			</dd>
 
 			<dt>Priority</dt>
 			<dd *ngIf="issue.issue_priority_id == 1">
-            	<img src="https://safe-ridge-41224.herokuapp.com/assets/trivial-5518244345e00cd4a5fa6f15d2e06d8bdd5a59ec56af8bc9de73694242e91ba3.svg" style="width: 10%; height: 10%" />
-            	trivial
+				<a routerLink="issues/trivial">
+	            	<img src="https://safe-ridge-41224.herokuapp.com/assets/trivial-5518244345e00cd4a5fa6f15d2e06d8bdd5a59ec56af8bc9de73694242e91ba3.svg" style="width: 10%; height: 10%" />
+	            	trivial
+	            </a>
 			</dd>
 			<dd *ngIf="issue.issue_priority_id == 2">
-            	<img src="https://safe-ridge-41224.herokuapp.com/assets/minor-3b9ec8225b7e2d8e072b7a21707a1aeece95500fe92a183fd780f9fd91ba4527.svg" style="width: 10%; height: 10%" />
-            	minor
+				<a routerLink="issues/minor">
+	            	<img src="https://safe-ridge-41224.herokuapp.com/assets/minor-3b9ec8225b7e2d8e072b7a21707a1aeece95500fe92a183fd780f9fd91ba4527.svg" style="width: 10%; height: 10%" />
+	            	minor
+	            </a>
 			</dd>
 			<dd *ngIf="issue.issue_priority_id == 3">
-            	<img src="https://safe-ridge-41224.herokuapp.com/assets/major-3989ecbc723ed029e25331900c2a95cac2676920dbbb41b2f6a3d475f4c39c9c.svg" style="width: 10%; height: 10%" />
-            	major
+            	<a routerLink="issues/major">
+	            	<img src="https://safe-ridge-41224.herokuapp.com/assets/major-3989ecbc723ed029e25331900c2a95cac2676920dbbb41b2f6a3d475f4c39c9c.svg" style="width: 10%; height: 10%" />
+	            	major
+	            </a>
 			</dd>
 			<dd *ngIf="issue.issue_priority_id == 4">
-            	<img src="https://safe-ridge-41224.herokuapp.com/assets/critical-bff267ee5aa80285d388bc70e126dee7bf5d86e4024a6c5915aa2d1d48d1dcbf.svg" style="width: 10%; height: 10%" />
-            	critical
+				<a routerLink="issues/critical">
+	            	<img src="https://safe-ridge-41224.herokuapp.com/assets/critical-bff267ee5aa80285d388bc70e126dee7bf5d86e4024a6c5915aa2d1d48d1dcbf.svg" style="width: 10%; height: 10%" />
+	            	critical
+	            </a>
 			</dd>
 			<dd *ngIf="issue.issue_priority_id == 5">
-            	<img src="https://safe-ridge-41224.herokuapp.com/assets/blocker-deaf6c1ddc85299cf40032f76fbcfa105d2fc7df43e2b72cba51b09019879ef0.svg" style="width: 10%; height: 10%" />
-            	blocker
+				<a routerLink="issues/blocker">
+	            	<img src="https://safe-ridge-41224.herokuapp.com/assets/blocker-deaf6c1ddc85299cf40032f76fbcfa105d2fc7df43e2b72cba51b09019879ef0.svg" style="width: 10%; height: 10%" />
+	            	blocker
+	            </a>
 			</dd>
 
 			<dt>Status</dt>
 			<dd *ngIf="issue.issue_status_id == 1">
-				new
+				<a routerLink="/issues/new">new</a>
 			</dd>
 			<dd *ngIf="issue.issue_status_id == 2">
-				open
+				<a routerLink="/issues/open">open</a>
 			</dd>
 			<dd *ngIf="issue.issue_status_id == 3">
-				on hold
+				<a routerLink="/issues/onhold">on hold</a>
 			</dd>
 			<dd *ngIf="issue.issue_status_id == 4">
-				resolved
+				<a routerLink="/issues/resolved">resolved</a>
 			</dd>
 			<dd *ngIf="issue.issue_status_id == 5">
-				duplicate
+				<a routerLink="/issues/duplicate">duplicate</a>
 			</dd>
 			<dd *ngIf="issue.issue_status_id == 6">
-				invalid
+				<a routerLink="/issues/invalid">invalid</a>
 			</dd>
 			<dd *ngIf="issue.issue_status_id == 7">
-				wontfix
+				<a routerLink="/issues/wontfix">wontfix</a>
 			</dd>
 			<dd *ngIf="issue.issue_status_id == 8">
-				closed
+				<a routerLink="/issues/closed">closed</a>
 			</dd>
 
 			<dt>Votes</dt>
