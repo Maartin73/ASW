@@ -63,6 +63,18 @@ export class IssuesComponent implements OnInit {
           case 'blocker':
             this.showPriority(5)
              break;
+          case 'bug':
+            this.showKind(1)
+              break;
+          case 'enhancement':
+            this.showKind(2)
+              break;
+          case 'proposal':
+            this.showKind(3)
+              break;
+          case 'task ':
+            this.showKind(4)
+              break;
           default:
             this.getIssues()
             break;

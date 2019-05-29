@@ -35,22 +35,22 @@
       </td>
       <td class="align-middle">
         <div class="text-center" *ngIf="issue.issue_kind_id == 1">
-          <button routerLink="/issues/kind/" type="button" class="btn" style="background-color:transparent; padding: 0px 0px;" (click)="showKind(issue.issue_kind_id)">
+          <button routerLink="/issues/bug" type="button" class="btn" style="background-color:transparent; padding: 0px 0px;">
             <img src="https://safe-ridge-41224.herokuapp.com/assets/bug-0cef5be35522ed02d898f1f65e95c3be9c0d09d214b7013cee6eb30a7118b2a5.svg" />
           </button>
         </div>
         <div class="text-center" *ngIf="issue.issue_kind_id == 2">
-          <button routerLink="/issues/trivial" type="button" class="btn" style="background-color:transparent; padding: 0px 0px;" (click)="showKind(issue.issue_kind_id)">
+          <button routerLink="/issues/enhancement" type="button" class="btn" style="background-color:transparent; padding: 0px 0px;">
             <img src="https://safe-ridge-41224.herokuapp.com/assets/enhancement-8b1bac2d78457489b5b3d91ad2bcd66edd9d5e2d5860c63225b1747a76294f74.svg" />
           </button>
         </div>
         <div class="text-center" *ngIf="issue.issue_kind_id == 3">
-          <button routerLink="/issues/trivial" type="button" class="btn" style="background-color:transparent; padding: 0px 0px;" (click)="showKind(issue.issue_kind_id)">
+          <button routerLink="/issues/proposal" type="button" class="btn" style="background-color:transparent; padding: 0px 0px;">
             <img src="https://safe-ridge-41224.herokuapp.com/assets/proposal-6d98b00edfa7d872da75aa3ce27bc14967e350f6ef8f94d2a4700ad9f21f3f18.svg" />
           </button>
         </div>
         <div class="text-center" *ngIf="issue.issue_kind_id == 4">
-          <button routerLink="/issues/trivial" type="button" class="btn" style="background-color:transparent; padding: 0px 0px;" (click)="showKind(issue.issue_kind_id)">
+          <button routerLink="/issues/task " type="button" class="btn" style="background-color:transparent; padding: 0px 0px;">
             <img src="https://safe-ridge-41224.herokuapp.com/assets/task-f01f4a88b8809fe8d55836cc96845f34e60a248e7514103e3cd7866c76773c91.svg" />
           </button>
         </div>
