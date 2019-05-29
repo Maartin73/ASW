@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Issue } from './issue';
 import { IssueService } from './issue.service';
+import { CookieService } from '../cookieservice.service';
 import { Router } from '@angular/router'; 
 import { ActivatedRoute, Params } from '@angular/router';
 
@@ -11,10 +12,11 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class IssuesComponent implements OnInit {
   title = 'Issue Tracker';
+  token = this.cookieService.get("sessionId");
 
   issues: Issue[];
 
-  constructor(private issueService: IssueService, private route: ActivatedRoute,) { }
+  constructor(private issueService: IssueService, private route: ActivatedRoute, private cookieService: CookieService) { }
 
   ngOnInit() {
     //this.getIssues();
