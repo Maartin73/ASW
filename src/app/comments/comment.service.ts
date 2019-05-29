@@ -12,9 +12,7 @@ export class CommentService {
     return this.http.post(`https://safe-ridge-41224.herokuapp.com/issues/${issueId}/comments`, {
       content: comment
     }, {
-      headers: new HttpHeaders()
-          .set('Accept', 'application/json')
-          .set('api_key', token)
+      headers: new HttpHeaders({'Accept' : 'application/json', 'api_key' : token})
     });
   }
 
