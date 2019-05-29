@@ -30,6 +30,7 @@ export class IssueDetailComponent implements OnInit {
   getIssue() {
   	const id = +this.route.snapshot.paramMap.get('id');
   	this.issueService.getIssue(id).subscribe(issue => this.issue = issue);
+  	console.log(this.issue);
   }
 
   deleteIssue() {
@@ -41,7 +42,12 @@ export class IssueDetailComponent implements OnInit {
   }
 
   createComment() {
-  	this.commentService.createComment(this.issue.id, this.newComment);
+  	this.commentService.createComment(this.issue.id, this.newComment).subscribe(
+  	onSuccess => {
+         console.log("Success");
+       }, onFail => {
+         console.log("Fail");
+       });
   }
 
   voteIssue() {
