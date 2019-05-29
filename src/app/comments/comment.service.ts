@@ -13,6 +13,7 @@ export class CommentService {
       content: comment
     }, {
       headers: new HttpHeaders()
+          .set('Accept', 'application/json')
           .set('api_key', token)
     });
   }
