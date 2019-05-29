@@ -6,6 +6,7 @@ import { Issue }         	from '../issues/issue';
 import { IssueService }  	from '../issues/issue.service';
 import { Comment }         	from '../comments/comment';
 import { CommentService }  	from '../comments/comment.service';
+import { CookieService }	from '../cookieservice.service';
 
 @Component({
   selector: 'app-issue-detail',
@@ -15,12 +16,15 @@ import { CommentService }  	from '../comments/comment.service';
 export class IssueDetailComponent implements OnInit {
   issue: Issue;
   newComment: string;
+  token = this.cookieService.get("sessionId");
+  user_id = this.cookieService.get("user_id");
 
   constructor(
   	private route: ActivatedRoute,
   	private issueService: IssueService,
   	private commentService: CommentService,
-  	private router: Router
+  	private router: Router,
+  	private cookieService: CookieService
   ) { }
 
   ngOnInit() {
@@ -42,7 +46,7 @@ export class IssueDetailComponent implements OnInit {
   }
 
   createComment() {
-  	this.commentService.createComment(this.issue.id, this.newComment).subscribe(
+  	this.commentService.createComment(this.issue.id, this.newComment, this.token).subscribe(
   	onSuccess => {
          console.log("Success");
        }, onFail => {
