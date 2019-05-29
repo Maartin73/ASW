@@ -13,6 +13,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class IssuesComponent implements OnInit {
   title = 'Issue Tracker';
   token = this.cookieService.get("sessionId");
+  user_id = this.cookieService.get("user_id");
 
   issues: Issue[];
 
