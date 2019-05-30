@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { SocialLoginModule, AuthServiceConfig, AuthService } from "angularx-social-login";
 import { GoogleLoginProvider } from "angularx-social-login";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Headers, RequestOptions } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CookieService } from '../cookieservice.service';
 
@@ -33,13 +32,14 @@ export class LoginComponent implements OnInit {
 
   sendToRestApiMethod(user_id: string, token: string) : void {
     console.log("Angular token: " + token);
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
     this.http.post("https://safe-ridge-41224.herokuapp.com/updateAndVerifyToken",
        {
           user_id: user_id,
           token: token
-       }, options
+       }, {
+         headers: new HttpHeaders()
+             .set('Accept', 'application/json')
+       }
     ).subscribe(
        onSuccess => {
          console.log("Success - " + token);
