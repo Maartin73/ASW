@@ -177,23 +177,35 @@ export class IssueService {
     }
   } */
 
+  editIssue(id: number, title: string, description: string, user_id: number, issue_kind_id: number, issue_priority_id: number, issue_status_id: number, token: string): Observable<any> {
+    console.log(issue_status_id);
+    return this.http.put(`https://safe-ridge-41224.herokuapp.com/issues/${id}`, {
+      title: title,
+      description: description,
+      user_id: user_id,
+      issue_kind_id: issue_kind_id,
+      issue_priority_id: issue_priority_id,
+      issue_status_id: issue_status_id,
+    }, {
+      headers: new HttpHeaders({'Accept' : 'application/json', 'api_key' : token})
+    });
+  }
+
   deleteIssue(id: number, token: string): Observable<any> {
    return this.http.delete(`https://safe-ridge-41224.herokuapp.com/issues/${id}`, {
         headers: new HttpHeaders({'Accept' : 'application/json', 'api_key' : token})
       });
   }
 
-  voteIssue(issueId: number): Observable<any> {
+  voteIssue(issueId: number, token: string): Observable<any> {
     return this.http.post(`https://safe-ridge-41224.herokuapp.com/issues/${issueId}/vote`, {
-        headers: new HttpHeaders()
-            .set('Accept', 'application/json')
+        headers: new HttpHeaders({'Accept' : 'application/json', 'api_key' : token})
       });
   }
 
-  watchIssue(issueId: number): Observable<any> {
+  watchIssue(issueId: number, token: string): Observable<any> {
     return this.http.post(`https://safe-ridge-41224.herokuapp.com/issues/${issueId}/watch`, {
-        headers: new HttpHeaders()
-            .set('Accept', 'application/json')
+        headers: new HttpHeaders({'Accept' : 'application/json', 'api_key' : token})
       });
   }
 

@@ -49,6 +49,9 @@ export class IssueDetailComponent implements OnInit {
   }
 
   resolveIssue() {
+    this.issueService.editIssue(this.issue.id, this.issue.title, this.issue.description, this.issue.user_id.id, this.issue.issue_kind_id, this.issue.issue_priority_id, 4, this.token).subscribe(onSuccess => {this.issue.issue_status_id = 4;},
+    onFail => {error => this.error = error;
+    console.log(this.error);})
   }
 
   isCurrentUser(userId: number) {
@@ -82,11 +85,13 @@ export class IssueDetailComponent implements OnInit {
   }
 
   voteIssue() {
-  	this.issueService.voteIssue(this.issue.id);
+  	this.issueService.voteIssue(this.issue.id, this.token).subscribe(error => this.error = error);
+    console.log(this.error);
   }
 
   watchIssue() {
-  	this.issueService.watchIssue(this.issue.id);
+  	this.issueService.watchIssue(this.issue.id, this.token).subscribe(error => this.error = error);
+    console.log(this.error);
   }
   
 }
