@@ -16,8 +16,9 @@ import { CookieService }	from '../cookieservice.service';
 export class IssueDetailComponent implements OnInit {
   issue: Issue;
   newComment: string;
-  token = this.cookieService.get("sessionId");
-  user_id = this.cookieService.get("user_id");
+  token: string;
+  user_id: string;
+  error: Object;
 
   constructor(
   	private route: ActivatedRoute,
@@ -28,7 +29,9 @@ export class IssueDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-  	this.getIssue();
+    this.token = this.cookieService.get("sessionId");
+    this.user_id = this.cookieService.get("user_id");
+    this.getIssue();
   }
 
   getIssue() {
@@ -46,12 +49,8 @@ export class IssueDetailComponent implements OnInit {
   }
 
   createComment() {
-  	this.commentService.createComment(this.issue.id, this.newComment, this.token).subscribe(
-  	onSuccess => {
-         console.log("Success");
-       }, onFail => {
-         console.log("Fail");
-       });
+  	this.commentService.createComment(this.issue.id, this.newComment, this.token).subscribe(error => this.error = error);
+    console.log(this.error);
   }
 
   voteIssue() {
