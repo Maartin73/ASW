@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
        {
           user_id: user_id,
           token: token
-       }
+       }, new Headers({ 'Content-Type': 'application/json' })
     ).subscribe(
        onSuccess => {
          console.log("Success - " + token);
