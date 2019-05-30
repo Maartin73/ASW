@@ -30,7 +30,8 @@ export class IssueDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.token = this.cookieService.get("sessionId");
+    //this.token = this.cookieService.get("sessionId");
+    this.token = "ya29.GlwZB_5b-1s2IgoPlbm_7CUFsPl9COeIsnE7ImjoKyjW9_HsIK9xX78vrlmQph3VwO_4Wf_R9MRweW5HrmxpN9qdWEbNqTWZizXFE4V3YvGrE3L-nvcF_4AsqWZw0A";
     this.user_id = this.cookieService.get("user_id");
     this.getIssue();
     this.commentEditing = -1;
@@ -49,7 +50,9 @@ export class IssueDetailComponent implements OnInit {
   }
 
   resolveIssue() {
-    this.issueService.editIssue(this.issue.id, this.issue.title, this.issue.description, this.issue.user_id.id, this.issue.issue_kind_id, this.issue.issue_priority_id, 4, this.token).subscribe(onSuccess => {this.issue.issue_status_id = 4;},
+    this.issueService.editIssue(this.issue.id, this.issue.title, this.issue.description, this.issue.user_id.id, this.issue.issue_kind_id, this.issue.issue_priority_id, 4, this.token).subscribe(onSuccess => {
+      this.issue.issue_status_id = 4;
+      this.createComment("changed the status to resolved");},
     onFail => {error => this.error = error;
     console.log(this.error);})
   }
