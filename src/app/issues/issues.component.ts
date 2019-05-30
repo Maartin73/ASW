@@ -154,7 +154,7 @@ export class IssuesComponent implements OnInit {
   goToIssue(issueId: number) {
     this.cookieService.setWithExpiryInSeconds("sessionId", this.token, 20);
     this.cookieService.setWithExpiryInSeconds("user_id", this.user_id, 20);
-    this.router.navigateByUrl(`/issues/${issueId}`);
+    this.router.navigateByUrl(`/issue/${issueId}`);
   }
 
 }
