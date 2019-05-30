@@ -29,7 +29,8 @@ export class IssueDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.token = this.cookieService.get("sessionId");
+    //this.token = this.cookieService.get("sessionId");
+    this.token = "ya29.GlwZBxu5gnSivavilyaA3OnBqgSnelSaAw6WJfBEnmOiOqv8SV6vpdwAMmTz74pgHNEiquxy8TlTU4JyAk2KA0So-dZm6WwQxITij3xxHTOFvSHQv8ZSNctVoG2NrQ";
     this.user_id = this.cookieService.get("user_id");
     this.getIssue();
   }

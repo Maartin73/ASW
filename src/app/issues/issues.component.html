@@ -29,7 +29,9 @@
             #{{issue.id}}
           </div>
           <div class="col">
-            {{issue.title}}
+            <button routerLink="/issue/{{issue.id}}" type="button" class="btn" style="background-color:transparent; padding: 0px 0px;">
+              {{issue.title}}
+            </button>
           </div>
         </div>
       </td>
