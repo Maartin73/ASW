@@ -4,6 +4,7 @@ import { IssueService } from './issue.service';
 import { CookieService } from '../cookieservice.service';
 import { Router } from '@angular/router'; 
 import { ActivatedRoute, Params } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-issues',
@@ -17,9 +18,11 @@ export class IssuesComponent implements OnInit {
 
   issues: Issue[];
 
-  constructor(private issueService: IssueService, private route: ActivatedRoute, private cookieService: CookieService) { }
+  constructor(private issueService: IssueService, private route: ActivatedRoute, private cookieService: CookieService, private http: HttpClient) { }
 
   ngOnInit() {
+    this.http.get("https://www.googleapis.com/oauth2/v3/tokeninfo?id_token={"+this.token+"}");
+
     //this.getIssues();
     this.route.params.subscribe(p => {
       var searchString = p["searchString"];
