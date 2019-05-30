@@ -1,7 +1,7 @@
 export class Comment {
     id: number;
     content: string;
-    author: {
+    user_id: {
     	id: number;
         name: string;
         email: string;

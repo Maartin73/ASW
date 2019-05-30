@@ -39,11 +39,10 @@
 						<div class="comment" style="padding: 5px 0px">
 							<div class="comment-author">
 								<a class="author-avatar">
-									
-
+									<img [src]="comment.user_id._links.image.href" style="border-radius: 50%; width: 35px">
 								</a>
-								<a class="author-name" style="padding: 0px 45px">
-									{{comment.id}}
+								<a class="author-name" style="padding: 0px 5px">
+									{{comment.user_id.name}}
 								</a>
 							</div>
 							<div class="comment-content" style="padding: 0px 45px">
