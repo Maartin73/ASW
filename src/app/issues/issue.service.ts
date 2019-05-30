@@ -37,7 +37,7 @@ export class IssueService {
   }
 
 
-  sortTitle(): Observable<Issue[]> { 
+  sortTitle(): Observable<Issue[]> {
     this.sortTitleBool = !this.sortTitleBool;
     if (this.sortTitleBool){
       return this.http.get<Issue[]>('https://safe-ridge-41224.herokuapp.com/issues?direction=asc&sort=id', {
@@ -53,7 +53,7 @@ export class IssueService {
     }
   }
 
-  sortKind(): Observable<Issue[]> { 
+  sortKind(): Observable<Issue[]> {
     this.sortKindBool = !this.sortKindBool;
     if (this.sortKindBool){
       return this.http.get<Issue[]>('https://safe-ridge-41224.herokuapp.com/issues?direction=asc&sort=issue_kind_id', {
@@ -69,7 +69,7 @@ export class IssueService {
     }
   }
 
-  sortPriority(): Observable<Issue[]> { 
+  sortPriority(): Observable<Issue[]> {
     this.sortKindPriority = !this.sortKindPriority;
     if (this.sortKindPriority){
       return this.http.get<Issue[]>('https://safe-ridge-41224.herokuapp.com/issues?direction=asc&sort=issue_priority_id', {
@@ -85,7 +85,7 @@ export class IssueService {
     }
   }
 
-  sortStatus(): Observable<Issue[]> { 
+  sortStatus(): Observable<Issue[]> {
     this.sortKindStatus = !this.sortKindStatus;
     if (this.sortKindStatus){
       return this.http.get<Issue[]>('https://safe-ridge-41224.herokuapp.com/issues?direction=asc&sort=issue_status_id', {
@@ -101,7 +101,7 @@ export class IssueService {
     }
   }
 
-  sortUserID(): Observable<Issue[]> { 
+  sortUserID(): Observable<Issue[]> {
     this.sortKindUser = !this.sortKindUser;
     if (this.sortKindUser){
       return this.http.get<Issue[]>('https://safe-ridge-41224.herokuapp.com/issues?direction=asc&sort=user_id', {
@@ -117,35 +117,35 @@ export class IssueService {
     }
   }
 
-  showKind(idKind): Observable<Issue[]> { 
+  showKind(idKind): Observable<Issue[]> {
     return this.http.get<Issue[]>('https://safe-ridge-41224.herokuapp.com/issues?issue_kind_id='+idKind, {
         headers: new HttpHeaders()
             .set('Accept', 'application/json')
       });
   }
 
-  showStatus(idStatus): Observable<Issue[]> { 
+  showStatus(idStatus): Observable<Issue[]> {
     return this.http.get<Issue[]>('https://safe-ridge-41224.herokuapp.com/issues?issue_status_id='+idStatus, {
         headers: new HttpHeaders()
             .set('Accept', 'application/json')
       });
   }
 
-  showPriority(idPriority): Observable<Issue[]> { 
+  showPriority(idPriority): Observable<Issue[]> {
     return this.http.get<Issue[]>('https://safe-ridge-41224.herokuapp.com/issues?issue_priority_id='+idPriority, {
         headers: new HttpHeaders()
             .set('Accept', 'application/json')
       });
   }
 
-  showUser(idUser): Observable<Issue[]> { 
+  showUser(idUser): Observable<Issue[]> {
     return this.http.get<Issue[]>('https://safe-ridge-41224.herokuapp.com/issues?user_id='+idUser, {
         headers: new HttpHeaders()
             .set('Accept', 'application/json')
       });
   }
 
-  /* sortCreated(): Observable<Issue[]> { 
+  /* sortCreated(): Observable<Issue[]> {
     this.sortKindBool = !this.sortKindBool;
     if (this.sortKindBool){
       return this.http.get<Issue[]>('https://safe-ridge-41224.herokuapp.com/issues?direction=asc&sort=issue_kind_id', {
@@ -161,7 +161,7 @@ export class IssueService {
     }
   }
 
-  sortUpdated(): Observable<Issue[]> { 
+  sortUpdated(): Observable<Issue[]> {
     this.sortKindBool = !this.sortKindBool;
     if (this.sortKindBool){
       return this.http.get<Issue[]>('https://safe-ridge-41224.herokuapp.com/issues?direction=asc&sort=issue_kind_id', {
@@ -186,6 +186,18 @@ export class IssueService {
       issue_kind_id: issue_kind_id,
       issue_priority_id: issue_priority_id,
       issue_status_id: issue_status_id,
+    }, {
+      headers: new HttpHeaders({'Accept' : 'application/json', 'api_key' : token})
+    });
+  }
+  addIssue(id:number, title: string, description: string, user_id: number,issue_kind_id: number, issue_priority_id:number, issue_status_id: number, token: string): Observable<any> {
+    return this.http.post(`https://safe-ridge-41224.herokuapp.com/issues`, {
+      title: title,
+      description: description,
+      user_id: user_id,
+      issue_kind_id: issue_kind_id,
+      issue_priority_id: issue_priority_id,
+      issue_status_id: issue_status_id
     }, {
       headers: new HttpHeaders({'Accept' : 'application/json', 'api_key' : token})
     });
