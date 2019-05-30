@@ -54,6 +54,11 @@ export class IssueDetailComponent implements OnInit {
     console.log(this.error);
   }
 
+  deleteComment(commentId) {
+    this.commentService.deleteComment(this.issue.id, commentId, this.token).subscribe(error => this.error = error);
+    console.log(this.error);
+  }
+
   voteIssue() {
   	this.issueService.voteIssue(this.issue.id);
   }

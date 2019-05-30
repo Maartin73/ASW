@@ -16,6 +16,12 @@ export class CommentService {
     });
   }
 
+  deleteComment(issueId:number, commentId: number, token: string): Observable<any> {
+    return this.http.delete(`https://safe-ridge-41224.herokuapp.com/issues/${issueId}/comments/${commentId}`, {
+        headers: new HttpHeaders({'Accept' : 'application/json', 'api_key' : token})
+        });
+  }
+
   constructor(private http: HttpClient) { }
 
  

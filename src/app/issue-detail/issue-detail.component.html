@@ -50,7 +50,7 @@
 								{{comment.content}}
 							</div>
 							<div style="padding: 0px 45px">
-								<button type="button" class="btn" style="background-color:transparent">Delete</button>
+								<button type="button" class="btn" style="background-color:transparent" (click)="deleteComment(comment.id)">Delete</button>
 								-
 								<a *ngIf="false"><button type="button" class="btn" style="background-color:transparent">Edit</button>
 								-</a>
