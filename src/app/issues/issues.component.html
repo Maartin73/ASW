@@ -29,7 +29,7 @@
             #{{issue.id}}
           </div>
           <div class="col">
-            <button routerLink="/issue/{{issue.id}}" type="button" class="btn" style="background-color:transparent; padding: 0px 0px;">
+            <button type="button" class="btn" style="background-color:transparent; padding: 0px 0px;" (click)="goToIssue(issue.id)">
               {{issue.title}}
             </button>
           </div>

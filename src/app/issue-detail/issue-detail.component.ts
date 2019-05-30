@@ -62,8 +62,8 @@ export class IssueDetailComponent implements OnInit {
 
   createComment(content: string) {
     console.log(content);
-  	this.commentService.createComment(this.issue.id, content, this.token).subscribe(error => this.error = error);
-    console.log(this.error);
+  	this.commentService.createComment(this.issue.id, content, this.token).subscribe(comment => this.issue.comments.push(comment));
+    this.newComment = "";
   }
 
   editComment(commentId: number, content: string) {
@@ -74,8 +74,12 @@ export class IssueDetailComponent implements OnInit {
   }
 
   deleteComment(commentId: number) {
-    this.commentService.deleteComment(this.issue.id, commentId, this.token).subscribe(error => this.error = error);
-    console.log(this.error);
+    this.commentService.deleteComment(this.issue.id, commentId, this.token).subscribe(onSuccess => {
+    for (var i = 0; i < this.issue.comments.length; i++) {
+      if (this.issue.comments[i].id == commentId) {
+        delete this.issue.comments[i];
+      }
+    }});
   }
 
   setCommentEditing(commentId) {
