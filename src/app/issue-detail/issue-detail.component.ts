@@ -19,6 +19,7 @@ export class IssueDetailComponent implements OnInit {
   token: string;
   user_id: string;
   error: Object;
+  commentEditing: number;
 
   constructor(
   	private route: ActivatedRoute,
@@ -32,6 +33,7 @@ export class IssueDetailComponent implements OnInit {
     this.token = this.cookieService.get("sessionId");
     this.user_id = this.cookieService.get("user_id");
     this.getIssue();
+    this.commentEditing = -1;
   }
 
   getIssue() {
@@ -59,9 +61,24 @@ export class IssueDetailComponent implements OnInit {
     console.log(this.error);
   }
 
-  deleteComment(commentId) {
+  editComment(commentId: number, content: string) {
+    console.log(content);
+    this.commentService.editComment(this.issue.id, commentId, content, this.token).subscribe(error => this.error = error);
+    console.log(this.error);
+    this.commentEditing = -1;
+  }
+
+  deleteComment(commentId: number) {
     this.commentService.deleteComment(this.issue.id, commentId, this.token).subscribe(error => this.error = error);
     console.log(this.error);
+  }
+
+  setCommentEditing(commentId) {
+    this.commentEditing = commentId;
+  }
+
+  isCommentEditing(commentId: number) {
+    return this.commentEditing == commentId;
   }
 
   voteIssue() {

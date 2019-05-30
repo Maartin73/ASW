@@ -17,6 +17,15 @@ export class CommentService {
     });
   }
 
+  editComment(issueId: number, commentId: number, commentContent: string, token:string): Observable<any> {
+    console.log(commentContent);
+    return this.http.put(`https://safe-ridge-41224.herokuapp.com/issues/${issueId}/comments/${commentId}`, {
+      content: commentContent
+    }, {
+      headers: new HttpHeaders({'Accept' : 'application/json', 'api_key' : token})
+    });
+  }
+
   deleteComment(issueId:number, commentId: number, token: string): Observable<any> {
     return this.http.delete(`https://safe-ridge-41224.herokuapp.com/issues/${issueId}/comments/${commentId}`, {
         headers: new HttpHeaders({'Accept' : 'application/json', 'api_key' : token})
