@@ -49,6 +49,10 @@ export class IssueDetailComponent implements OnInit {
   resolveIssue() {
   }
 
+  isCurrentUser(userId: number) {
+    return this.user_id == String(userId);
+  }
+
   createComment(content: string) {
     console.log(content);
   	this.commentService.createComment(this.issue.id, content, this.token).subscribe(error => this.error = error);

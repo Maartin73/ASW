@@ -48,12 +48,14 @@
 							<div class="comment-content" style="padding: 0px 45px">
 								{{comment.content}}
 							</div>
-							<div style="padding: 0px 45px">
-								<button type="button" class="btn" style="background-color:transparent" (click)="deleteComment(comment.id)">Delete</button>
-								-
-								<a *ngIf="false"><button type="button" class="btn" style="background-color:transparent">Edit</button>
-								-</a>
-								<a class="creation-time" style="margin: 0px 15px">
+							<div style="padding: 0px 30px">
+								<a *ngIf="isCurrentUser(comment.user_id.id)">
+									<button type="button" class="btn" style="background-color:transparent" (click)="deleteComment(comment.id)">Delete</button>
+									-
+									<button type="button" class="btn" style="background-color:transparent">Edit</button>
+									-
+								</a>
+								<a class="creation-time" style="margin: 0px 10px">
 									{{comment.created_at[8]}}{{comment.created_at[9]}}{{comment.created_at[4]}}{{comment.created_at[5]}}{{comment.created_at[6]}}{{comment.created_at[7]}}{{comment.created_at[0]}}{{comment.created_at[1]}}{{comment.created_at[2]}}{{comment.created_at[3]}}
 								</a>
 							</div>
