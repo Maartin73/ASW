@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   sendToRestApiMethod(user_id: string, token: string) : void {
     console.log("Angular token: " + token);
     let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
+    let options = new HttpHeaders({ headers: headers });
     this.http.post("https://safe-ridge-41224.herokuapp.com/updateAndVerifyToken",
        {
           user_id: user_id,
