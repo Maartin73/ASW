@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { SocialLoginModule, AuthServiceConfig, AuthService } from "angularx-social-login";
 import { GoogleLoginProvider } from "angularx-social-login";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Headers, RequestOptions } from '@angular/http';
+import { Headers, RequestOptions } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CookieService } from '../cookieservice.service';
 
