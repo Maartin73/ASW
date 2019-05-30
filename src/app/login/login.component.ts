@@ -39,19 +39,12 @@ export class LoginComponent implements OnInit {
        }, {
          headers: new HttpHeaders()
              .set('Accept', 'application/json')
-       }
+       },
     ).subscribe(
        onSuccess => {
          console.log("Success - " + token);
           //login was successful
           //save the token that you got from your REST API in your preferred location i.e. as a Cookie or LocalStorage as you do with normal login
-          console.log(
-               this.http.get("https://www.googleapis.com/oauth2/v3/tokeninfo?id_token={"+token+"}", {
-               headers: new HttpHeaders()
-                     .set('Accept', 'application/json')
-               })
-            );
-         
           this.cookieService.setWithExpiryInSeconds("sessionId", token, 20);
           this.cookieService.setWithExpiryInSeconds("user_id", user_id, 20);
           this.router.navigate(['/issues']);
