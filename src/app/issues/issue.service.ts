@@ -177,10 +177,9 @@ export class IssueService {
     }
   } */
 
-  deleteIssue(id: number): void {
-   this.http.delete(`https://safe-ridge-41224.herokuapp.com/issues/${id}`, {
-        headers: new HttpHeaders()
-            .set('Accept', 'application/json')
+  deleteIssue(id: number, token: string): Observable<any> {
+   return this.http.delete(`https://safe-ridge-41224.herokuapp.com/issues/${id}`, {
+        headers: new HttpHeaders({'Accept' : 'application/json', 'api_key' : token})
       });
   }
 
