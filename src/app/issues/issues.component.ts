@@ -17,7 +17,7 @@ export class IssuesComponent implements OnInit {
 
   issues: Issue[];
 
-  constructor(private issueService: IssueService, private route: ActivatedRoute, private cookieService: CookieService) { }
+  constructor(private issueService: IssueService, private route: ActivatedRoute, private cookieService: CookieService, private router: Router) { }
 
   ngOnInit() {
     //this.getIssues();
@@ -149,6 +149,12 @@ export class IssuesComponent implements OnInit {
 
   sortWatching(): void {
 
+  }
+
+  goToIssue(issueId: number) {
+    this.cookieService.setWithExpiryInSeconds("sessionId", this.token, 20);
+    this.cookieService.setWithExpiryInSeconds("user_id", this.user_id, 20);
+    this.router.navigateByUrl(`/issues/${issueId}`);
   }
 
 }

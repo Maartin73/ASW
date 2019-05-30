@@ -35,8 +35,8 @@
 				</div>
 				<div class="issue-coments" style="padding: 0px 38px">
 					<b>Comments ({{issue.comments.length}})</b>
-					<div class="comments-list" *ngFor="let comment of issue.comments">
-						<div class="comment" style="padding: 5px 0px">
+					<div class="comments-list">
+						<div class="comment" style="padding: 5px 0px" *ngFor="let comment of issue.comments">
 							<div class="comment-author">
 								<a class="author-avatar">
 									<img [src]="comment.user_id._links.image.href" style="border-radius: 50%; width: 35px">
@@ -55,7 +55,7 @@
 									{{comment.content}}
 								</div>
 							</div>
-							<div style="padding: 0px 30px">
+							<div style="padding: 0px 30px" *ngIf="comment != undefined">
 								<button type="button" class="btn" style="background-color:transparent" (click)="deleteComment(comment.id)">Delete</button>
 								-
 								<button type="button" class="btn" style="background-color:transparent" (click)="setCommentEditing(comment.id)">Edit</button>
