@@ -9,8 +9,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class CommentService {
 
   createComment(issueId: number, comment: string, token: string): Observable<any> {
+    console.log(comment);
     return this.http.post(`https://safe-ridge-41224.herokuapp.com/issues/${issueId}/comments`, {
-      "content": comment
+      content: comment
     }, {
       headers: new HttpHeaders({'Accept' : 'application/json', 'api_key' : token})
     });

@@ -29,7 +29,8 @@ export class IssueDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.token = this.cookieService.get("sessionId");
+    //this.token = this.cookieService.get("sessionId");
+    this.token = "ya29.GlwZBxu5gnSivavilyaA3OnBqgSnelSaAw6WJfBEnmOiOqv8SV6vpdwAMmTz74pgHNEiquxy8TlTU4JyAk2KA0So-dZm6WwQxITij3xxHTOFvSHQv8ZSNctVoG2NrQ";
     this.user_id = this.cookieService.get("user_id");
     this.getIssue();
   }
@@ -49,8 +50,9 @@ export class IssueDetailComponent implements OnInit {
   resolveIssue() {
   }
 
-  createComment() {
-  	this.commentService.createComment(this.issue.id, this.newComment, this.token).subscribe(error => this.error = error);
+  createComment(content: string) {
+    console.log(content);
+  	this.commentService.createComment(this.issue.id, content, this.token).subscribe(error => this.error = error);
     console.log(this.error);
   }
 

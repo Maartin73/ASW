@@ -61,8 +61,8 @@
 						</div>
 					</div>
 					<div class="new-comment" style="padding: 5px 0px">
-						<textarea [(ngModel)] = "newComment" placeholder = "What do you want to say?" style="width: 100%"></textarea>
-						<button type="button" (click)="createComment()" style="margin: 20px 5px;">Comment</button>
+						<textarea ref-textarea [(ngModel)] = "newComment" placeholder = "What do you want to say?" style="width: 100%"></textarea>
+						<button type="button" (click)="createComment(textarea.value)" style="margin: 20px 5px;">Comment</button>
 					</div>
 				</div>
 			</div>
